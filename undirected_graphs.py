@@ -1,34 +1,54 @@
+def dfs(node, visited, graph):
+    print(node)
+    visited.add(node)
+    for nei in graph[node]:
+        if nei not in visited:
+            dfs(nei, visited, graph)
 
-visited = set()
-def dfs(ele, s):
+
+def detectCycle(ele, parent, visited, graph):
     visited.add(ele)
-    if ele == s:
-        return True
-    for i in graph[ele]:
-        if i not in visited:
-            return dfs(i, s)
+    for nei in graph[ele]:
+        if nei not in visited:
+            if detectCycle(nei, ele, visited, graph):
+                return True
+        elif nei != parent:
+            return True
     return False
 
-def detectCycle(ele, p):
-    if ele in visited and ele != p:
-        return True
-    else:
-        visited.add(ele)
-        for i in graph[ele]:
-            if i != p:
-                return detectCycle(i, ele)
-        return False
-        
+
+def bfs(start, graph):
+    visited = set()
+    queue = []
+    queue.append(start)
+    visited.add(start)
+    while queue:
+        node = queue.pop(0)
+        print(node)
+        for nei in graph[node]:
+            if nei not in visited:
+                visited.add(nei)
+                queue.append(nei)
+    return visited
+
+
 graph = {
     0: [1, 2],
     1: [0, 2, 4],
     2: [0, 1, 3],
-    3: [2], 
+    3: [2],
     4: [1]
 }
+
 start = 3
-# print(dfs(start, 3))
-print(detectCycle(start, -1))
 
+# DFS
+visited = set()
+print(dfs(start, visited, graph))
 
-    
+# BFS
+print(bfs(start, graph))            
+
+# Cycle detection
+visited_cycle = set()
+print(detectCycle(start, -1, visited_cycle, graph))
