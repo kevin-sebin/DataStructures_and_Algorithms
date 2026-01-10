@@ -51,7 +51,6 @@ class Trie:
     
 obj = Trie()
 obj.insertWord('apple')
-obj.insertWord('nigger')
 obj.insertWord('apples')
 obj.insertWord('app')
 print(obj.display())

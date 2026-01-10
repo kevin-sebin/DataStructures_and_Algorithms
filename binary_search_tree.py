@@ -22,6 +22,7 @@ class binarySearchTree:
                 node.right = dfs(node.right, val)
             return node
         self.root = dfs(self.root, val)
+
     
     def inOrderTraversal(self, root, arr):
         if not root:
@@ -30,6 +31,7 @@ class binarySearchTree:
         arr.append(root.val)
         self.inOrderTraversal(root.right, arr)
         return arr
+    
     
 obj = binarySearchTree()
 arr = [5, 3, 1, 9, 10, 7, 6, 4, 3, 9, 11]
