@@ -7,5 +7,5 @@ def quickSort(arr):
         right = [x for x in arr[:-1] if x > pivot]
         return quickSort(left) + [pivot] + quickSort(right)
 
-arr = [21, 9, 3, 4, 1, 3, 7, 343]
-print(quickSort(arr))
+# arr = [21, 9, 3, 4, 1, 3, 7, 343]
+# print(quickSort(arr))

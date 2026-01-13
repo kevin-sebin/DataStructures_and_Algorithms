@@ -19,5 +19,5 @@ def mergeSort(arr):
         sub.extend(right_half[p2:])
         return sub
 
-arr = [21, 9, 3, 4, 1, 3, 7, 343]
-print(mergeSort(arr))
+# arr = [21, 9, 3, 4, 1, 3, 7, 343]
+# print(mergeSort(arr))
