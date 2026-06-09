@@ -30,3 +30,9 @@ class CircularLinkedList:
             print(curr.data)
             curr = curr.next
         print('\n')
+
+cl = CircularLinkedList()
+arr = [1, 2, 3, 4, 5]
+for i in arr:
+    cl.insertAtBeg(i)
+cl.display()
